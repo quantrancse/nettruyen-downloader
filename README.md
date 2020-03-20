@@ -55,6 +55,7 @@
 * Update new chapter or download missing chapters of an already exist manga.
 * Download images by multithreading to speed-up.
 * Keep original image format if possible.
+* Still working with [NhatTruyen.com](http://nhattruyen.com/) or some manga redirect to [NhatTruyen.com](http://nhattruyen.com/)
 
 At the start, I intended to develop a whole [NetTruyen.com](http://www.nettruyen.com) homepage with many features like searching or saving followed manga. But I think it will be more comfortable to do it on the website. (and I'm too lazy)
 
