@@ -49,7 +49,7 @@
 **_Notes:_** _This tool is a personal standalone project, it does not have any related to [NetTruyen.com](http://www.nettruyen.com) administrators._
 
 ### Features
-* Show some infomation about manga and list of chapters.
+* Show some information about manga and list of chapters.
 * Download a manga by select chapter in checkboxes or enter from one chapter to another chapter.
 * Download all chapter in the manga.
 * Update new chapter or download missing chapters of an already exist manga.
