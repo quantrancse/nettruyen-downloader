@@ -34,7 +34,7 @@
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
 - [How To Use](#how-to-use)
-  - [Recommended Manga Viewer](#recommended-manga-viewer)
+  - [Recommend Manga Viewer](#recommend-manga-viewer)
 - [Issues](#issues)
 - [Contributing](#contributing)
 - [License](#license)
@@ -112,7 +112,7 @@ fbs freeze
 
 ![Demo](images/demo.gif)
 
-### Recommended Manga Viewer
+### Recommend Manga Viewer
 
 * I have found a good image viewer application that perfectly suited for reading manga - [QuickViewer](https://kanryu.github.io/quickviewer/)
 
