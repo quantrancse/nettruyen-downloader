@@ -1,0 +1,6 @@
+{
+    "app_name": "NettruyenDownloader",
+    "author": "quantrancse",
+    "main_module": "src/main/python/nettruyen.py",
+    "version": "1.0.0"
+}

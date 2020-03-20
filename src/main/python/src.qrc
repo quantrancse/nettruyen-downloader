@@ -1,0 +1,23 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource>
+    <file>resources/appIcon/icon.png</file>
+    <file>resources/appIcon/logo-nettruyen-big.png</file>
+    <file>resources/appIcon/logo-nettruyen.png</file>
+    <file>resources/mangaInfo/baseline_book_white_18dp.png</file>
+    <file>resources/mangaInfo/baseline_calendar_today_white_18dp.png</file>
+    <file>resources/mangaInfo/baseline_collections_bookmark_white_18dp.png</file>
+    <file>resources/mangaInfo/baseline_description_white_18dp.png</file>
+    <file>resources/mangaInfo/baseline_person_white_18dp.png</file>
+    <file>resources/mangaInfo/baseline_remove_red_eye_white_18dp.png</file>
+    <file>resources/ErrorPage.qml</file>
+    <file>resources/ErrorPageForm.ui.qml</file>
+    <file>resources/HomePage.qml</file>
+    <file>resources/HomePageForm.ui.qml</file>
+    <file>resources/MangaChapter.qml</file>
+    <file>resources/MangaInfo.qml</file>
+    <file>resources/MangaInfoForm.ui.qml</file>
+    <file>resources/MangaPage.qml</file>
+    <file>resources/PageBackground.qml</file>
+    <file>resources/view.qml</file>
+</qresource>
+</RCC>
