@@ -19,6 +19,8 @@
     <a href="#how-to-use">View Demo</a>
     ·
     <a href="https://github.com/quantrancse/nettruyen-downloader-minimal">Minimal Version</a>
+    ·
+    <a href="https://github.com/quantrancse/nettruyen-downloader-script">Script Version</a>
   </p>
 </p>
 
