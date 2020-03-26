@@ -107,7 +107,7 @@ class DownloadEngine(QThread):
                 img_path_name = chapter_dir_path + '/image_' + img_name
             else:
                 img_path_name = chapter_dir_path + \
-                    '/image_' + str(image_index) + '.jpg'
+                    '/image_' + "{0:0=3d}".format(image_index) + '.jpg'
             img_path_list.append(img_path_name)
             image_index += 1
 
