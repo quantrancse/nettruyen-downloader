@@ -151,7 +151,7 @@ class DownloadEngine(QThread):
 
             # Limit download time of an image is 5 secs
             start = time.time()
-            timeout = 5
+            timeout = 10
             while True:
                 try:
                     img_data = requests.get(
@@ -161,6 +161,7 @@ class DownloadEngine(QThread):
                     break
                 except:
                     if time.time() - start > timeout:
+                        MessageBox("Error download image: " + img_path_name)
                         break
                     print('Retry: download image: ' + img_url)
                     time.sleep(1)
