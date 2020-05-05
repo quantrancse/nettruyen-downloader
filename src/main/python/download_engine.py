@@ -29,6 +29,13 @@ class DownloadEngine(QThread):
     def setManga(self, manga):
         self.current_manga = manga
         self.image_formats = ['.jpg', '.jpeg', '.png', '.gif', '.tiff', '.bmp']
+        self.stop_signal = 0
+        self.error403_signal = 0
+        self.error403_chapters = []
+
+    def resetError403(self):
+        self.error403_signal = 0
+        self.error403_chapters = []
 
     @pyqtSlot()
     def stopDownload(self):
@@ -74,6 +81,12 @@ class DownloadEngine(QThread):
                 index += 1
                 self.valueProgress.emit(index)   # Update progress bar
 
+        # Error 403 Dialog
+        if self.error403_signal:
+            chapters_403 = ', '.join(self.error403_chapters)
+            MessageBox('Can not download some images: ' + chapters_403)
+            self.resetError403()
+
         # Update download Finish Dialog
         self.isDone.emit()
         if chapter_list:
@@ -87,10 +100,10 @@ class DownloadEngine(QThread):
 
         for content_url in soup.find('div', class_='reading-detail box_doc').find_all('img'):
             if content_url not in contents:
-                if any(img_fm in content_url['src'] for img_fm in self.image_formats):
-                    contents.append(content_url['src'])
-                elif content_url.has_attr('data-cdn') and any(img_fm in content_url['data-cdn'] for img_fm in self.image_formats):
+                if content_url.has_attr('data-cdn') and any(img_fm in content_url['data-cdn'] for img_fm in self.image_formats):
                     contents.append(content_url['data-cdn'])
+                elif any(img_fm in content_url['src'] for img_fm in self.image_formats):
+                    contents.append(content_url['src'])
                 elif content_url.has_attr('data-original'):
                     contents.append(content_url['data-original'])
                 else:
@@ -107,7 +120,7 @@ class DownloadEngine(QThread):
                 img_path_name = chapter_dir_path + '/image_' + img_name
             else:
                 img_path_name = chapter_dir_path + \
-                    '/image_' + "{0:0=3d}".format(image_index) + '.jpg'
+                    '/image_' + '{0:0=3d}'.format(image_index) + '.jpg'
             img_path_list.append(img_path_name)
             image_index += 1
 
@@ -139,8 +152,12 @@ class DownloadEngine(QThread):
             # Threading for download each image
             with ThreadPoolExecutor(max_workers=20) as executor:
                 executor.map(self.downloadImage, image_data_list)
+
+            # Save error chapter
+            if self.error403_signal:
+                self.error403_chapters.append(chapter_data['chapter_name'])
         except:
-            MessageBox("Error get chapter info. Please try again later.")
+            MessageBox('Error get chapter info. Please try again later.')
             print('Error Get Chapter Info: ' + chapter_data['chapter_url'])
 
         print('Finish ' + chapter_data['chapter_name'])
@@ -155,13 +172,16 @@ class DownloadEngine(QThread):
             while True:
                 try:
                     img_data = requests.get(
-                        img_url, headers=HEADERS, timeout=5).content
-                    with open(img_path_name, 'wb') as handler:
-                        handler.write(img_data)
+                        img_url, headers=HEADERS, timeout=5)
+                    if img_data.status_code == 403:
+                        self.error403_signal = 1
+                    else:
+                        with open(img_path_name, 'wb') as handler:
+                            handler.write(img_data.content)
                     break
                 except:
                     if time.time() - start > timeout:
-                        MessageBox("Error download image: " + img_path_name)
+                        MessageBox('Error download image: ' + img_path_name)
                         break
                     print('Retry: download image: ' + img_url)
                     time.sleep(1)
