@@ -45,7 +45,13 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-[Update] This tool is not working anymore. The raw requests to the image host have been blocked by the Cloudflare firewall. And I'm too lazy.
+[Update_1] This tool is not working anymore. The raw requests to the image host have been blocked by the Cloudflare firewall. And I'm too lazy.
+
+[Update_2] I've found a Tampermonkey script that works on different manga sites: https://github.com/lelinhtinh/Userscript/tree/master/manga_comic_downloader
+
+Thanks to the author and use it by your own way.
+
+---
 
 [NetTruyen.com](http://www.nettruyen.com) is a popular manga website with a lightweight and clear front-end, however, each manga has a different image size which causes it difficult to read and uncomfortable to resize the whole browser. So I want to create a tool to download a manga for reading offline and also learn some new skills about GUI for Python.
 
