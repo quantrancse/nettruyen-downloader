@@ -13,7 +13,7 @@
   <h2 align="center">NetTruyen Downloader</h2>
 
   <p align="center">
-    A tool to download manga on <a href=http://www.nettruyen.com>NetTruyen.com</a>
+    A tool to download manga on <a href=http://www.nettruyenvip.com>NetTruyen.com</a>
     <br />
     <br />
     <a href="#how-to-use">View Demo</a>
@@ -45,17 +45,15 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-[Update_1] This tool is not working anymore. The raw requests to the image host have been blocked by the Cloudflare firewall. And I'm too lazy.
+[Update: 07-05-2021] This tool is working.
 
-[Update_2] I've found a Tampermonkey script that works on different manga sites: https://github.com/lelinhtinh/Userscript/tree/master/manga_comic_downloader
+[Other] I've found a Tampermonkey script that works on different manga sites: https://github.com/lelinhtinh/Userscript/tree/master/manga_comic_downloader
 
 Thanks to the author and use it by your own way.
 
 ---
 
-[NetTruyen.com](http://www.nettruyen.com) is a popular manga website with a lightweight and clear front-end, however, each manga has a different image size which causes it difficult to read and uncomfortable to resize the whole browser. So I want to create a tool to download a manga for reading offline and also learn some new skills about GUI for Python.
-
-**_Notes:_** _This tool is a personal standalone project, it does not have any related to [NetTruyen.com](http://www.nettruyen.com) administrators._
+**_Notes:_** _This tool is a personal standalone project, it does not have any related to [NetTruyen.com](http://www.nettruyenvip.com) administrators._
 
 ### Features
 * Show some information about manga and list of chapters.
@@ -64,10 +62,7 @@ Thanks to the author and use it by your own way.
 * Update new chapter or download missing chapters of an already exist manga.
 * Download images by multithreading to speed-up.
 * Keep original image format if possible.
-* Still working with [NhatTruyen.com](http://nhattruyen.com/) or some manga redirect to [NhatTruyen.com](http://nhattruyen.com/)
-
-At the start, I intended to develop a whole [NetTruyen.com](http://www.nettruyen.com) homepage with many features like searching or saving followed manga. But I think it will be more comfortable to do it on the website. (and I'm too lazy)
-
+* Still working with [NhatTruyen.com](http://nhattruyenhay.com/) or some manga redirect to [NhatTruyen.com](http://nhattruyenhay.com/)
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -81,17 +76,12 @@ I just only test it on Windows platform but the source code can be built to run 
 
 * python 3.6.8
 * PyQt5
-```sh
-pip install pyqt5
-```
 * pyrcc5
-* fbs or pyinstaller
+* pyinstaller
 ```sh
-pip install fbs
+pip install bs4 requests pyqt5 pyinstaller
 ```
 * Some IDE if needed: Qt Creator, Qt Designer
-
-**_Notes:_** _fbs does not run with python > 3.6, so if you want to build with higher python version please use pyinstaller_
 
 ### Installation
 
@@ -105,16 +95,10 @@ git clone https://github.com/quantrancse/nettruyen-downloader.git
 ```sh
 pyrcc5 src.qrc -o src.py
 ```
-* Run the code
-```sh
-fbs run
-```
 * Build .exe file
 ```sh
-fbs freeze
+pyinstaller ./nettruyen.spec
 ```
-
-* More info about fbs: [fbs-tutorial](https://github.com/mherrmann/fbs-tutorial)
 
 <!-- USAGE EXAMPLES -->
 ## How To Use
@@ -132,7 +116,7 @@ fbs freeze
 * May take a long time to download images on slow internet connection or connection to the image host.
 * May cause blocked by image host because multithreading sending too many requests.
 * Suddenly stop the application when downloading may cause lagging or not responding because the download thread is still running.
-* Can not download multiple chapters in parallel because [NetTruyen.com](http://www.nettruyen.com) has blocked requests per second.
+* Can not download multiple chapters in parallel because [NetTruyen.com](http://www.nettruyenvip.com) has blocked requests per second.
 
 
 
@@ -163,7 +147,6 @@ Distributed under the MIT License. See [LICENSE][license-url] for more informati
 ## Acknowledgements
 * [PyQt5 tutorial](https://build-system.fman.io/pyqt5-tutorial)
 * [Qt Documentation](https://doc.qt.io/)
-* [fbs tutorial](https://github.com/mherrmann/fbs-tutorial)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 [python-shield]: https://img.shields.io/badge/python-3.6.8-brightgreen?style=flat-square

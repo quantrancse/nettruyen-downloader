@@ -36,7 +36,7 @@ Rectangle {
                 cursorShape: Qt.PointingHandCursor
                 anchors.fill: parent
                 onClicked: {
-                    Qt.openUrlExternally("http://www.nettruyen.com");
+                    Qt.openUrlExternally("http://www.nettruyenvip.com");
                 }
             }
         }

@@ -6,11 +6,11 @@ HomePageForm {
     }
 
     nettruyenLink.onClicked: {
-        Qt.openUrlExternally("http://www.nettruyen.com");
+        Qt.openUrlExternally("http://www.nettruyenvip.com");
     }
 
     authorLink.onClicked: {
-        Qt.openUrlExternally("https://www.facebook.com/quantrancse");
+        Qt.openUrlExternally("https://github.com/quantrancse");
     }
 }
 
