@@ -75,6 +75,7 @@ I just only test it on the Windows platform but the source code can be built to 
 ### Prerequisites
 
 * python 3.6.8
+* Windows 10 SDK
 * PyQt5
 * pyrcc5
 * pyinstaller
