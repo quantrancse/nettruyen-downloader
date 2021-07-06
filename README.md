@@ -56,21 +56,21 @@ Thanks to the author and use it by your own way.
 **_Notes:_** _This tool is a personal standalone project, it does not have any related to [NetTruyen.com](http://www.nettruyenvip.com) administrators._
 
 ### Features
-* Show some information about manga and list of chapters.
-* Download a manga by select chapter in checkboxes or enter from one chapter to another chapter.
-* Download all chapter in the manga.
+* Show some information about manga and a list of chapters.
+* Download a manga by select chapters in checkboxes or enter from one chapter to another chapter.
+* Download all chapters in the manga.
 * Update new chapter or download missing chapters of an already exist manga.
-* Download images by multithreading to speed-up.
+* Download images by multithreading to speed up.
 * Keep original image format if possible.
 * Still working with [NhatTruyen.com](http://nhattruyenhay.com/) or some manga redirect to [NhatTruyen.com](http://nhattruyenhay.com/)
 
 <!-- GETTING STARTED -->
 ## Getting Started
 
-For the ones who want to develop this project in the future or make it for other manga website.
+For the ones who want to develop this project in the future or make it for another manga website.
 <br />
 <br />
-I just only test it on Windows platform but the source code can be built to run on Mac or Linux with some modifications about the os path.
+I just only test it on the Windows platform but the source code can be built to run on Mac or Linux with some modifications about the os path.
 
 ### Prerequisites
 
@@ -91,7 +91,7 @@ git clone https://github.com/quantrancse/nettruyen-downloader.git
 ```
 * Modify the source code
 * Modify the QML files
-* Use pyrcc5 to compile Qt resource file (.qrc) and converts it into a Python module for PyQt5 applications
+* Use pyrcc5 to compile Qt resource file (.qrc) and converts it into a Python module for PyQt5 application
 ```sh
 pyrcc5 src.qrc -o src.py
 ```
@@ -112,11 +112,10 @@ pyinstaller ./nettruyen.spec
 <!-- ROADMAP -->
 ## Issues
 
-* Quietly slow in performance and large size in comparison to Qt on C++/C#.
-* May take a long time to download images on slow internet connection or connection to the image host.
+* May take a long time or spamming error messages when download images on a slow internet connection or slow connection to the image host.
 * May cause blocked by image host because multithreading sending too many requests.
 * Suddenly stop the application when downloading may cause lagging or not responding because the download thread is still running.
-* Can not download multiple chapters in parallel because [NetTruyen.com](http://www.nettruyenvip.com) has blocked requests per second.
+* Can not download multiple chapters in parallel because [NetTruyen.com](http://www.nettruyenvip.com) has blocked requests per second and may be performace issues.
 
 
 
