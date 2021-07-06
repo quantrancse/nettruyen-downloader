@@ -45,7 +45,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-[Update: 07-05-2021] This tool is working.
+[Update: 06-07-2021] This tool still working if nettruyen change domain.
 
 [Other] I've found a Tampermonkey script that works on different manga sites: https://github.com/lelinhtinh/Userscript/tree/master/manga_comic_downloader
 
