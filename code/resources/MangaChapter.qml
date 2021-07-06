@@ -10,9 +10,9 @@ PageBackground {
     property var list_of_chapters: []
 
     Component.onCompleted: {
-        mangaThumbnail.source = con.getMangaThumbnail()
+        mangaThumbnail.source = con.get_manga_thumbnail()
         mangaName.text = con.getMangaName()
-        chapterList.model = con.getChapterList()
+        chapterList.model = con.get_chapter_list()
     }
 
     Label {
@@ -91,7 +91,7 @@ PageBackground {
         font.family: "Verdana"
 
         onClicked: {
-            folderDialogDownloadChapter.open()
+            folderDialogdownload_chapter.open()
         }
     }
 
@@ -138,15 +138,15 @@ PageBackground {
        id: folderDialogDownloadAllChapter
        title: "Please choose save folder"
        onAccepted: {
-           con.downloadChapter(folderDialogDownloadAllChapter.folder, ["all"])
+           con.download_chapter(folderDialogDownloadAllChapter.folder, ["all"])
        }
    }
 
    FolderDialog{
-       id: folderDialogDownloadChapter
+       id: folderDialogdownload_chapter
        title: "Please choose save folder"
        onAccepted: {
-            con.downloadChapter(folderDialogDownloadChapter.folder, list_of_chapters)
+            con.download_chapter(folderDialogdownload_chapter.folder, list_of_chapters)
        }
    }
 }

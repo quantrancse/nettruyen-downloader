@@ -2,7 +2,7 @@ import QtQuick 2.4
 
 HomePageForm {
     searchButton.onClicked: {
-        pageLoader.source = con.checkValidUrl(link.text)
+        pageLoader.source = con.check_valid_url(link.text)
     }
 
     nettruyenLink.onClicked: {
