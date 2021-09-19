@@ -16,6 +16,8 @@
     A tool to download manga on <a href=http://www.nettruyenpro.com>NetTruyen</a>
     <br />
     <br />
+    <a href="#download">Download</a>
+    ·
     <a href="#how-to-use">View Demo</a>
     ·
     <a href="https://github.com/quantrancse/nettruyen-downloader-minimal">Minimal Version</a>
@@ -32,11 +34,12 @@
 - [Table of Contents](#table-of-contents)
 - [About The Project](#about-the-project)
   - [Features](#features)
-- [Getting Started](#getting-started)
+  - [Recommend Manga Viewer](#recommend-manga-viewer)
+- [Download](#download)
+- [How To Use](#how-to-use)
+- [Build Project](#build-project)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
-- [How To Use](#how-to-use)
-  - [Recommend Manga Viewer](#recommend-manga-viewer)
 - [Issues](#issues)
 - [Contributing](#contributing)
 - [License](#license)
@@ -59,18 +62,29 @@ Thanks to the author and use it by your own way.
 * Show some information about manga and a list of chapters.
 * Download a manga by select chapters in checkboxes or enter from one chapter to another chapter.
 * Download all chapters in the manga.
-* Update new chapter or download missing chapters of an already exist manga.
+* Update new chapters or download missing chapters of an already downloaded manga.
 * Download images by multithreading to speed up.
 * Keep original image format if possible.
-* Still working with [NhatTruyen](http://nhattruyenvip.com/) or some manga redirect to [NhatTruyen](http://nhattruyenvip.com/)
+* Working with [NhatTruyen](http://nhattruyenvip.com/) or some manga redirect to [NhatTruyen](http://nhattruyenvip.com/)
 
-<!-- GETTING STARTED -->
-## Getting Started
+##### Recommend Manga Viewer
 
-For the ones who want to develop this project in the future or make it for another manga website.
-<br />
-<br />
-I just only test it on the Windows platform but the source code can be built to run on Mac or Linux with some modifications about the os path.
+* I have found a good image viewer application that perfectly suited for reading manga - [QuickViewer](https://kanryu.github.io/quickviewer/)
+
+<!-- Download -->
+## Download
+
+**Windows**: [nettruyen_downloader.exe ~ 50MB](https://rebrand.ly/nettruyen-downloader)
+
+**Windows**: [nettruyen_minimal.exe ~ 35MB](https://rebrand.ly/nettruyen_minimal)
+
+<!-- USAGE EXAMPLES -->
+## How To Use
+
+![Demo](images/demo.gif)
+
+<!-- Build Project -->
+## Build Project
 
 ### Prerequisites
 
@@ -100,24 +114,13 @@ pyrcc5 src.qrc -o src.py
 pyinstaller ./nettruyen.spec
 ```
 
-<!-- USAGE EXAMPLES -->
-## How To Use
-
-![Demo](images/demo.gif)
-
-### Recommend Manga Viewer
-
-* I have found a good image viewer application that perfectly suited for reading manga - [QuickViewer](https://kanryu.github.io/quickviewer/)
-
-<!-- ROADMAP -->
+<!-- ISSUES -->
 ## Issues
 
 * May take a long time or spamming error messages when download images on a slow internet connection or slow connection to the image host.
 * May cause blocked by image host because multithreading sending too many requests.
 * Suddenly stop the application when downloading may cause lagging or not responding because the download thread is still running.
 * Can not download multiple chapters in parallel because [NetTruyen](http://www.nettruyenpro.com) has blocked requests per second and may be performace issues.
-
-
 
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -129,8 +132,6 @@ Contributions are what make the open source community such an amazing place to b
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
-
-
 
 <!-- LICENSE -->
 ## License
