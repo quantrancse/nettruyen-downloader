@@ -6,7 +6,6 @@ PageBackground {
     property alias searchButton: searchButton
     property alias link: link
     property alias authorLink: authorLink
-    property alias nettruyenLink: nettruyenLink
 
     Rectangle {
         id: grid
@@ -26,12 +25,6 @@ PageBackground {
             source: "appIcon/logo-nettruyen-big.png"
             fillMode: Image.PreserveAspectFit
 
-            MouseArea {
-                id: nettruyenLink
-                hoverEnabled: true
-                cursorShape: Qt.PointingHandCursor
-                anchors.fill: parent
-            }
         }
 
         Label {
@@ -105,7 +98,7 @@ PageBackground {
         width: 222
         height: 27
         color: "#ffffff"
-        text: qsTr("Created by: quantrancse | v1.2.0")
+        text: qsTr("Created by: quantrancse | v1.2.1")
         anchors.horizontalCenter: parent.horizontalCenter
         font.pointSize: 10
         font.family: "Verdana"

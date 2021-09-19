@@ -5,12 +5,8 @@ HomePageForm {
         pageLoader.source = con.check_valid_url(link.text)
     }
 
-    nettruyenLink.onClicked: {
-        Qt.openUrlExternally("http://www.nettruyenvip.com");
-    }
-
     authorLink.onClicked: {
-        Qt.openUrlExternally("https://github.com/quantrancse");
+        Qt.openUrlExternally("https://quantrancse.github.io");
     }
 }
 

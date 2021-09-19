@@ -30,15 +30,6 @@ Rectangle {
             source: "appIcon/logo-nettruyen.png"
             fillMode: Image.PreserveAspectFit
 
-            MouseArea {
-                id: nettruyenLink
-                hoverEnabled: true
-                cursorShape: Qt.PointingHandCursor
-                anchors.fill: parent
-                onClicked: {
-                    Qt.openUrlExternally("http://www.nettruyenvip.com");
-                }
-            }
         }
     }
 

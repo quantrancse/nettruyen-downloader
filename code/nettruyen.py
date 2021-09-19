@@ -1,3 +1,4 @@
+import base64
 import os
 import sys
 import time
@@ -8,7 +9,6 @@ from urllib.parse import urlparse
 
 import requests
 from bs4 import BeautifulSoup
-from fbs_runtime.application_context.PyQt5 import ApplicationContext
 from PyQt5.QtCore import (QMetaObject, QObject, QRect, Qt, QThread, QUrl,
                           pyqtSignal, pyqtSlot)
 from PyQt5.QtGui import QFont, QIcon
@@ -385,7 +385,13 @@ class Bridge(QObject):
 
     @pyqtSlot(result=str)
     def get_manga_thumbnail(self):
-        return self.format_img_url(self.current_manga.thumbnail)
+        try:
+            image_thumnail = requests.get(
+                self.current_manga.thumbnail, headers=HEADERS, timeout=5)
+            return 'data:image/png;base64,' + str(base64.b64encode(image_thumnail.content))[1:]
+        except Exception:
+            print('Error: Can not get thumnail image ' +
+                  self.current_manga.thumbnail)
 
     def format_img_url(self, url):
         return url.replace('//', 'http://')

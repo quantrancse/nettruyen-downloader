@@ -13,7 +13,7 @@
   <h2 align="center">NetTruyen Downloader</h2>
 
   <p align="center">
-    A tool to download manga on <a href=http://www.nettruyenvip.com>NetTruyen.com</a>
+    A tool to download manga on <a href=http://www.nettruyenpro.com>NetTruyen</a>
     <br />
     <br />
     <a href="#how-to-use">View Demo</a>
@@ -53,7 +53,7 @@ Thanks to the author and use it by your own way.
 
 ---
 
-**_Notes:_** _This tool is a personal standalone project, it does not have any related to [NetTruyen.com](http://www.nettruyenvip.com) administrators._
+**_Notes:_** _This tool is a personal standalone project, it does not have any related to [NetTruyen](http://www.nettruyenpro.com) administrators._
 
 ### Features
 * Show some information about manga and a list of chapters.
@@ -62,7 +62,7 @@ Thanks to the author and use it by your own way.
 * Update new chapter or download missing chapters of an already exist manga.
 * Download images by multithreading to speed up.
 * Keep original image format if possible.
-* Still working with [NhatTruyen.com](http://nhattruyenhay.com/) or some manga redirect to [NhatTruyen.com](http://nhattruyenhay.com/)
+* Still working with [NhatTruyen](http://nhattruyenvip.com/) or some manga redirect to [NhatTruyen](http://nhattruyenvip.com/)
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -74,10 +74,9 @@ I just only test it on the Windows platform but the source code can be built to 
 
 ### Prerequisites
 
-* python 3.6.8
+* python 3.9.6
 * Windows 10 SDK
 * PyQt5
-* pyrcc5
 * pyinstaller
 ```sh
 pip install bs4 requests pyqt5 pyinstaller
@@ -116,7 +115,7 @@ pyinstaller ./nettruyen.spec
 * May take a long time or spamming error messages when download images on a slow internet connection or slow connection to the image host.
 * May cause blocked by image host because multithreading sending too many requests.
 * Suddenly stop the application when downloading may cause lagging or not responding because the download thread is still running.
-* Can not download multiple chapters in parallel because [NetTruyen.com](http://www.nettruyenvip.com) has blocked requests per second and may be performace issues.
+* Can not download multiple chapters in parallel because [NetTruyen](http://www.nettruyenpro.com) has blocked requests per second and may be performace issues.
 
 
 
@@ -141,7 +140,7 @@ Distributed under the MIT License. See [LICENSE][license-url] for more informati
 <!-- CONTACT -->
 ## Contact
 
-* **Author** - [@quantrancse](https://www.facebook.com/quantrancse)
+* **Author** - [@quantrancse](https://quantrancse.github.io)
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
@@ -149,7 +148,7 @@ Distributed under the MIT License. See [LICENSE][license-url] for more informati
 * [Qt Documentation](https://doc.qt.io/)
 
 <!-- MARKDOWN LINKS & IMAGES -->
-[python-shield]: https://img.shields.io/badge/python-3.6.8-brightgreen?style=flat-square
+[python-shield]: https://img.shields.io/badge/python-3.9.6-brightgreen?style=flat-square
 [pyqt5-shield]: https://img.shields.io/badge/PyQt5-5.14.1-blue?style=flat-square
 [qtqml-shield]: https://img.shields.io/badge/QtQML-5.14.1-brightgreen?style=flat-square
 [license-shield]: https://img.shields.io/github/license/quantrancse/nettruyen-downloader?style=flat-square
