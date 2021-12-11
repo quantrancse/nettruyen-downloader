@@ -13,7 +13,7 @@
   <h2 align="center">NetTruyen Downloader</h2>
 
   <p align="center">
-    A tool to download manga on <a href=http://www.nettruyenpro.com>NetTruyen</a>
+    A tool to download manga on <a href=http://www.nettruyengo.com>NetTruyen</a>
     <br />
     <br />
     <a href="#download">Download</a>
@@ -56,7 +56,7 @@ Thanks to the author and use it by your own way.
 
 ---
 
-**_Notes:_** _This tool is a personal standalone project, it does not have any related to [NetTruyen](http://www.nettruyenpro.com) administrators._
+**_Notes:_** _This tool is a personal standalone project, it does not have any related to [NetTruyen](http://www.nettruyengo.com) administrators._
 
 ### Features
 * Show some information about manga and a list of chapters.
@@ -120,7 +120,7 @@ pyinstaller ./nettruyen.spec
 * May take a long time or spamming error messages when download images on a slow internet connection or slow connection to the image host.
 * May cause blocked by image host because multithreading sending too many requests.
 * Suddenly stop the application when downloading may cause lagging or not responding because the download thread is still running.
-* Can not download multiple chapters in parallel because [NetTruyen](http://www.nettruyenpro.com) has blocked requests per second and may be performace issues.
+* Can not download multiple chapters in parallel because [NetTruyen](http://www.nettruyengo.com) has blocked requests per second and may be performace issues.
 
 <!-- CONTRIBUTING -->
 ## Contributing
