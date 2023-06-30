@@ -98,7 +98,7 @@ PageBackground {
         width: 222
         height: 27
         color: "#ffffff"
-        text: qsTr("Created by: quantrancse | v1.2.1")
+        text: qsTr("Created by: quantrancse | v1.2.2")
         anchors.horizontalCenter: parent.horizontalCenter
         font.pointSize: 10
         font.family: "Verdana"

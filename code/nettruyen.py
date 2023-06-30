@@ -7,7 +7,9 @@ from os import mkdir, path
 from os.path import abspath, dirname, isdir, join
 from urllib.parse import urlparse
 
+import cloudscraper
 import requests
+import src
 from bs4 import BeautifulSoup
 from PyQt5.QtCore import (QMetaObject, QObject, QRect, Qt, QThread, QUrl,
                           pyqtSignal, pyqtSlot)
@@ -16,13 +18,11 @@ from PyQt5.QtQml import QQmlApplicationEngine
 from PyQt5.QtWidgets import (QApplication, QDialog, QDialogButtonBox, QLabel,
                              QLineEdit, QMessageBox, QProgressBar, QPushButton)
 
-import src
-
 HEADERS = {
     'Connection': 'keep-alive',
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36',
     'DNT': '1',
-    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,image/svg+xml,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
     'Accept-Encoding': 'gzip, deflate',
     'Accept-Language': 'en-US,en;q=0.9'
 }
@@ -206,6 +206,10 @@ class DownloadEngine(QThread):
         self.stop_signal = 1
 
     def run(self):
+        self.session = requests.Session()
+        self.session.headers = HEADERS
+        self.scraper = cloudscraper.create_scraper(
+            browser={'browser': 'firefox', 'platform': 'windows', 'mobile': False}, sess=self.session)
         self.crawl_chapter_data_list()
 
     def crawl_chapter_data_list(self):
@@ -298,7 +302,7 @@ class DownloadEngine(QThread):
     def get_chapter_contents(self, chapter_data):
         try:
             # Request chapter url
-            request = requests.get(
+            request = self.scraper.get(
                 chapter_data['chapter_url'], headers=HEADERS, timeout=10)
             soup = BeautifulSoup(request.text, 'html.parser')
 
@@ -340,7 +344,7 @@ class DownloadEngine(QThread):
             timeout = 10
             while True:
                 try:
-                    img_data = requests.get(
+                    img_data = self.scraper.get(
                         img_url, headers=HEADERS, timeout=10)
                     if img_data.status_code == 403:
                         self.error403_signal = 1
@@ -369,11 +373,15 @@ class Bridge(QObject):
         referer_header = '{uri.scheme}://{uri.netloc}/'.format(uri=domain)
         HEADERS['Referer'] = referer_header
 
+        self.session = requests.Session()
+        self.session.headers = HEADERS
+        self.scraper = cloudscraper.create_scraper(
+            browser={'browser': 'firefox', 'platform': 'windows', 'mobile': False}, sess=self.session)
         if any(x in input_str for x in ['nhattruyen', 'nettruyen']):
             try:
-                request = requests.get(input_str, headers=HEADERS, timeout=5)
+                request = self.scraper.get(
+                    input_str, headers=HEADERS, timeout=10)
                 soup = BeautifulSoup(request.text, 'html.parser')
-
                 if soup.find('div', id='nt_listchapter'):
                     self.current_manga.manga_url = str(input_str)
                     self.crawl_manga_home_page()
@@ -386,8 +394,8 @@ class Bridge(QObject):
     @pyqtSlot(result=str)
     def get_manga_thumbnail(self):
         try:
-            image_thumnail = requests.get(
-                self.current_manga.thumbnail, headers=HEADERS, timeout=5)
+            image_thumnail = self.scraper.get(
+                self.current_manga.thumbnail, headers=HEADERS, timeout=10)
             return 'data:image/png;base64,' + str(base64.b64encode(image_thumnail.content))[1:]
         except Exception:
             print('Error: Can not get thumnail image ' +
@@ -491,14 +499,18 @@ class Bridge(QObject):
     def crawl_manga_home_page(self):
         try:
             print('Start crawling ---------', self.current_manga.manga_url)
-            request = requests.get(
+            request = self.scraper.get(
                 self.current_manga.manga_url, headers=HEADERS, timeout=10)
             soup = BeautifulSoup(request.text, 'html.parser')
 
             self.current_manga.manga_name = soup.find(
                 'h1', class_='title-detail').text
+
             self.current_manga.thumbnail = soup.find(
                 'div', class_='col-image').find('img')['src']
+            if self.current_manga.thumbnail[3:] != 'http':
+                self.current_manga.thumbnail = 'http:' + self.current_manga.thumbnail
+
             self.current_manga.author = soup.find('li', class_='author').find(
                 'p', class_='col-xs-8').string
 

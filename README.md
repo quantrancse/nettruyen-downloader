@@ -13,7 +13,7 @@
   <h2 align="center">NetTruyen Downloader</h2>
 
   <p align="center">
-    A tool to download manga on <a href=http://www.nettruyengo.com>NetTruyen</a>
+    A tool to download manga on <a href=http://www.nettruyenmax.com>NetTruyen</a>
     <br />
     <br />
     <a href="#download">Download</a>
@@ -34,7 +34,7 @@
 - [Table of Contents](#table-of-contents)
 - [About The Project](#about-the-project)
   - [Features](#features)
-  - [Recommend Manga Viewer](#recommend-manga-viewer)
+      - [Recommend Manga Viewer](#recommend-manga-viewer)
 - [Download](#download)
 - [How To Use](#how-to-use)
 - [Build Project](#build-project)
@@ -56,7 +56,7 @@ Thanks to the author and use it by your own way.
 
 ---
 
-**_Notes:_** _This tool is a personal standalone project, it does not have any related to [NetTruyen](http://www.nettruyengo.com) administrators._
+**_Notes:_** _This tool is a personal standalone project, it does not have any related to [NetTruyen](http://www.nettruyenmax.com) administrators._
 
 ### Features
 * Show some information about manga and a list of chapters.
@@ -65,7 +65,7 @@ Thanks to the author and use it by your own way.
 * Update new chapters or download missing chapters of an already downloaded manga.
 * Download images by multithreading to speed up.
 * Keep original image format if possible.
-* Working with [NhatTruyen](http://nhattruyenvip.com/) or some manga redirect to [NhatTruyen](http://nhattruyenvip.com/)
+* Working with [NhatTruyen](http://nhattruyenmin.com/) or some manga redirect to [NhatTruyen](http://nhattruyenmin.com/)
 
 ##### Recommend Manga Viewer
 
@@ -88,7 +88,7 @@ Thanks to the author and use it by your own way.
 
 ### Prerequisites
 
-* python 3.9.6
+* python 3.9.7
 * Windows 10 SDK
 * PyQt5
 * pyinstaller
@@ -120,7 +120,7 @@ pyinstaller ./nettruyen.spec
 * May take a long time or spamming error messages when download images on a slow internet connection or slow connection to the image host.
 * May cause blocked by image host because multithreading sending too many requests.
 * Suddenly stop the application when downloading may cause lagging or not responding because the download thread is still running.
-* Can not download multiple chapters in parallel because [NetTruyen](http://www.nettruyengo.com) has blocked requests per second and may be performace issues.
+* Can not download multiple chapters in parallel because [NetTruyen](http://www.nettruyenmax.com) has blocked requests per second and may be performace issues.
 
 <!-- CONTRIBUTING -->
 ## Contributing
